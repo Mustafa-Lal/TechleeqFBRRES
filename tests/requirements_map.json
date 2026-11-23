@@ -1,0 +1,378 @@
+{
+  "FR-001": [
+    "tests/test_workflow.py::test_sale_and_privacy",
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-002": [
+    "tests/test_workflow.py::test_sale_and_privacy",
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-006": [
+    "tests/test_workflow.py::test_sale_and_privacy",
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-003": [
+    "tests/test_requirements.py::test_restaurant_settings_and_scope"
+  ],
+  "FR-004": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-005": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-008": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-009": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-011": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-007": [
+    "tests/test_workflow.py::test_sale_and_privacy",
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access"
+  ],
+  "FR-010": [
+    "tests/test_workflow.py::test_sale_and_privacy",
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access"
+  ],
+  "FR-012": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-013": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-014": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-015": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-016": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-017": [
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-018": [
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_edges.py::test_nonstacking_priority_minimum_and_invalid_period"
+  ],
+  "FR-019": [
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_edges.py::test_nonstacking_priority_minimum_and_invalid_period"
+  ],
+  "FR-020": [
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability"
+  ],
+  "FR-021": [
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_edges.py::test_nonstacking_priority_minimum_and_invalid_period"
+  ],
+  "FR-022": [
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption",
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability"
+  ],
+  "FR-023": [
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption",
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_edges.py::test_combo_unavailable_component"
+  ],
+  "FR-024": [
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption",
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_edges.py::test_split_tax_collection_and_combo_report"
+  ],
+  "FR-025": [
+    "tests/test_completion.py::test_menu_availability_and_manager_override"
+  ],
+  "FR-026": [
+    "tests/test_requirements.py::test_promotion_targets_schedules_stacking_and_combo_availability",
+    "tests/test_operations.py::test_cash_shift_and_receipt"
+  ],
+  "FR-027": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-028": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-029": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-030": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-031": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-032": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-033": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-034": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-035": [
+    "tests/test_requirements.py::test_revisions_are_atomic_and_preserve_original_payment",
+    "tests/test_operations.py::test_reservations_cancel_and_notifications"
+  ],
+  "FR-036": [
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history"
+  ],
+  "FR-037": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-038": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-039": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-040": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-041": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-042": [
+    "tests/test_requirements.py::test_displays_sse_and_read_only_access",
+    "tests/test_workflow.py::test_sale_and_privacy"
+  ],
+  "FR-043": [
+    "tests/test_requirements.py::test_split_tender_receipt_and_payment_status"
+  ],
+  "FR-044": [
+    "tests/test_requirements.py::test_split_tender_receipt_and_payment_status",
+    "tests/test_edges.py::test_split_tax_collection_and_combo_report"
+  ],
+  "FR-045": [
+    "tests/test_requirements.py::test_split_tender_receipt_and_payment_status"
+  ],
+  "FR-046": [
+    "tests/test_requirements.py::test_split_tender_receipt_and_payment_status"
+  ],
+  "FR-047": [
+    "tests/test_operations.py::test_refund_limits_and_profit",
+    "tests/test_operations.py::test_reservations_cancel_and_notifications"
+  ],
+  "FR-048": [
+    "tests/test_operations.py::test_refund_limits_and_profit",
+    "tests/test_operations.py::test_reservations_cancel_and_notifications",
+    "tests/test_edges.py::test_purchase_conversion_recoverable_tax_and_restoration"
+  ],
+  "FR-049": [
+    "tests/test_operations.py::test_cash_shift_and_receipt"
+  ],
+  "FR-050": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness",
+    "tests/test_operations.py::test_tax_inclusive_card_and_method_validation",
+    "tests/test_acceptance.py::test_tax_before_discount_rule"
+  ],
+  "FR-051": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness",
+    "tests/test_operations.py::test_tax_inclusive_card_and_method_validation",
+    "tests/test_acceptance.py::test_tax_before_discount_rule"
+  ],
+  "FR-052": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness",
+    "tests/test_operations.py::test_tax_inclusive_card_and_method_validation",
+    "tests/test_acceptance.py::test_tax_before_discount_rule"
+  ],
+  "FR-053": [
+    "tests/test_completion.py::test_province_contracts_test_mode_and_snapshot",
+    "tests/test_fiscal.py::test_submit_and_duplicate_protection"
+  ],
+  "FR-054": [
+    "tests/test_fiscal.py::test_timeout_never_auto_retries",
+    "tests/test_acceptance.py::test_pending_worker_and_reconciliation",
+    "tests/test_acceptance.py::test_srb_return_uses_original_authority",
+    "tests/test_requirements.py::test_unpaid_cancel_has_full_fiscal_reversal"
+  ],
+  "FR-055": [
+    "tests/test_fiscal.py::test_timeout_never_auto_retries",
+    "tests/test_acceptance.py::test_pending_worker_and_reconciliation",
+    "tests/test_acceptance.py::test_srb_return_uses_original_authority",
+    "tests/test_requirements.py::test_unpaid_cancel_has_full_fiscal_reversal"
+  ],
+  "FR-056": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-057": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-059": [
+    "tests/test_requirements.py::test_roles_account_lifecycle_and_password_change"
+  ],
+  "FR-058": [
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment",
+    "tests/test_edges.py::test_purchase_conversion_recoverable_tax_and_restoration"
+  ],
+  "FR-060": [
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment",
+    "tests/test_completion.py::test_attachments_access_and_validation"
+  ],
+  "FR-061": [
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-062": [
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-063": [
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-064": [
+    "tests/test_requirements.py::test_stock_counts_opening_cost_and_stale_approval",
+    "tests/test_requirements.py::test_weighted_cost_snapshot_and_uncosted_warning",
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots",
+    "tests/test_edges.py::test_purchase_conversion_recoverable_tax_and_restoration"
+  ],
+  "FR-065": [
+    "tests/test_requirements.py::test_stock_counts_opening_cost_and_stale_approval",
+    "tests/test_requirements.py::test_weighted_cost_snapshot_and_uncosted_warning",
+    "tests/test_requirements.py::test_menu_variants_and_historical_snapshots"
+  ],
+  "FR-066": [
+    "tests/test_operations.py::test_reservations_cancel_and_notifications",
+    "tests/test_completion.py::test_simultaneous_orders_cannot_overreserve",
+    "tests/test_workflow.py::test_stock_shortage_rolls_back"
+  ],
+  "FR-067": [
+    "tests/test_operations.py::test_reservations_cancel_and_notifications",
+    "tests/test_completion.py::test_simultaneous_orders_cannot_overreserve",
+    "tests/test_workflow.py::test_stock_shortage_rolls_back"
+  ],
+  "FR-068": [
+    "tests/test_operations.py::test_reservations_cancel_and_notifications",
+    "tests/test_completion.py::test_simultaneous_orders_cannot_overreserve",
+    "tests/test_workflow.py::test_stock_shortage_rolls_back"
+  ],
+  "FR-069": [
+    "tests/test_requirements.py::test_stock_counts_opening_cost_and_stale_approval"
+  ],
+  "FR-070": [
+    "tests/test_requirements.py::test_low_stock_alert_recovers_and_recurs",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment",
+    "tests/test_edges.py::test_purchase_conversion_recoverable_tax_and_restoration"
+  ],
+  "FR-071": [
+    "tests/test_requirements.py::test_low_stock_alert_recovers_and_recurs",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-072": [
+    "tests/test_requirements.py::test_low_stock_alert_recovers_and_recurs",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-073": [
+    "tests/test_requirements.py::test_expense_filters_tax_cost_treatment_and_exports",
+    "tests/test_completion.py::test_attachments_access_and_validation"
+  ],
+  "FR-074": [
+    "tests/test_requirements.py::test_expense_filters_tax_cost_treatment_and_exports",
+    "tests/test_completion.py::test_attachments_access_and_validation"
+  ],
+  "FR-075": [
+    "tests/test_acceptance.py::test_cancellation_and_expense_reversal_preserve_history",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-076": [
+    "tests/test_acceptance.py::test_cancellation_and_expense_reversal_preserve_history",
+    "tests/test_operations.py::test_supplier_purchase_return_and_adjustment"
+  ],
+  "FR-077": [
+    "tests/test_requirements.py::test_expense_filters_tax_cost_treatment_and_exports"
+  ],
+  "FR-078": [
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions",
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption",
+    "tests/test_edges.py::test_split_tax_collection_and_combo_report"
+  ],
+  "FR-079": [
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions",
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption",
+    "tests/test_edges.py::test_split_tax_collection_and_combo_report"
+  ],
+  "FR-081": [
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions",
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption"
+  ],
+  "FR-084": [
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions",
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption"
+  ],
+  "FR-085": [
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions",
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_operations.py::test_scheduled_discounts_and_combo_consumption"
+  ],
+  "FR-080": [
+    "tests/test_requirements.py::test_weighted_cost_snapshot_and_uncosted_warning"
+  ],
+  "FR-083": [
+    "tests/test_requirements.py::test_weighted_cost_snapshot_and_uncosted_warning"
+  ],
+  "FR-082": [
+    "tests/test_requirements.py::test_expense_filters_tax_cost_treatment_and_exports",
+    "tests/test_completion.py::test_multi_line_invoice_partial_returns_and_rollback",
+    "tests/test_edges.py::test_purchase_conversion_recoverable_tax_and_restoration"
+  ],
+  "FR-086": [
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions"
+  ],
+  "FR-087": [
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions"
+  ],
+  "FR-088": [
+    "tests/test_completion.py::test_item_returns_reporting_and_privacy",
+    "tests/test_requirements.py::test_queue_filters_preview_and_status_history",
+    "tests/test_requirements.py::test_financial_reports_reconcile_and_link_transactions"
+  ],
+  "FR-089": [
+    "tests/test_requirements.py::test_restaurant_settings_and_scope"
+  ],
+  "FR-090": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness"
+  ],
+  "FR-091": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness"
+  ],
+  "FR-094": [
+    "tests/test_requirements.py::test_tax_permissions_future_effective_rule_and_readiness"
+  ],
+  "FR-092": [
+    "tests/test_acceptance.py::test_srb_return_uses_original_authority",
+    "tests/test_completion.py::test_province_contracts_test_mode_and_snapshot"
+  ],
+  "FR-093": [
+    "tests/test_fiscal.py::test_unsupported_authority_never_claims_success",
+    "tests/test_completion.py::test_province_contracts_test_mode_and_snapshot"
+  ]
+}
