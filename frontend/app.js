@@ -204,7 +204,7 @@ function login(){
     <section class="login-art">
       ${brand()}
       <div class="login-copy">
-        <div class="eyebrow" style="color:var(--gold)">POWERED BY TECHLEEQ</div>
+        <div class="eyebrow" style="color:#38bdf8">POWERED BY TECHLEEQ</div>
         <h1>Fresh dishes.<br>Effortless <em>orders.</em></h1>
         <p>From plated favourites to instant kitchen tickets and fiscal billing — your restaurant in one tactile workspace.</p>
         <div class="login-preview-cards" aria-hidden="true">
@@ -509,13 +509,16 @@ async function menuPage(){
       </div>
       ${!isManager && activePromos.length ? `<div class="promo-strip" aria-label="Active promotions">${activePromos.map(p=>`<span class="promo-pill"><strong>OFFER</strong>${esc(p.name)} · ${p.kind==='percent'?(p.value/100)+'% off':money(p.value)+' off'}${p.minimum_subtotal?' (Min '+money(p.minimum_subtotal)+')':''}</span>`).join('')}</div>` : ''}
       <div class="tabs" id="categories">
-        <button class="active" data-category="all"><span class="cat-emoji">🍽️</span>Food <small>(${items.length})</small></button>
-        ${categories.map((c,idx)=>`<button data-category="${c.id}"><span class="cat-emoji">${categoryEmoji(c.name,idx)}</span>${esc(c.name)}${c.active===false?' (Hidden)':''}</button>`).join('')}
-        ${combos.length?`<button data-category="combos"><span class="cat-emoji">🍱</span>Combos <small>(${combos.length})</small></button>`:''}
-        ${state.favorites.size?`<button data-category="favorites"><span class="cat-emoji">❤️</span>Favourites</button>`:''}
+        <button class="${state.category==='all'?'active':''}" data-category="all"><span class="cat-emoji">🍽️</span>Food <small>(${items.length})</small></button>
+        ${categories.map((c,idx)=>`<button class="${String(c.id)===String(state.category)?'active':''}" data-category="${c.id}"><span class="cat-emoji">${categoryEmoji(c.name,idx)}</span>${esc(c.name)}${c.active===false?' (Hidden)':''}</button>`).join('')}
+        ${combos.length?`<button class="${state.category==='combos'?'active':''}" data-category="combos"><span class="cat-emoji">🍱</span>Combos <small>(${combos.length})</small></button>`:''}
+        ${state.favorites.size?`<button class="${state.category==='favorites'?'active':''}" data-category="favorites"><span class="cat-emoji">❤️</span>Favourites</button>`:''}
       </div>
       <div class="category-section-head">
-        <h2 id="active-category-heading">Category</h2>
+        <div class="row" style="gap:12px;flex-wrap:wrap">
+          <h2 id="active-category-heading">Category</h2>
+          ${isManager?'<span id="category-manage-actions" class="row" style="gap:8px"></span>':''}
+        </div>
         <select id="sort-select" class="sort-pill-select" aria-label="Sort dishes">
           <option value="popular" ${state.sort==='popular'?'selected':''}>Most Popular ▾</option>
           <option value="price_asc" ${state.sort==='price_asc'?'selected':''}>Price: Low to High ▾</option>
@@ -528,6 +531,25 @@ async function menuPage(){
     ${isManager?'':'<aside class="panel cart" id="cart"></aside>'}
   </div>`;
 
+  const syncCategoryHeader=()=>{
+    const catObj = state.cache.categories.find(c=>String(c.id)===String(state.category));
+    if(!catObj && !['all','combos','favorites'].includes(state.category)){
+      state.category='all';
+      $$('[data-category]').forEach(x=>x.classList.toggle('active',x.dataset.category==='all'));
+    }
+    $('#active-category-heading').textContent = state.category==='all'?'Category':state.category==='combos'?'House Combos':state.category==='favorites'?'Favourite Dishes':catObj?.name||'Category';
+    const actionsEl = $('#category-manage-actions');
+    if(actionsEl){
+      if(isManager && catObj){
+        actionsEl.innerHTML = `<button type="button" class="button secondary small" id="edit-active-cat">${icon('settings')}Rename / Edit</button><button type="button" class="button secondary small" id="delete-active-cat" style="color:var(--danger);border-color:rgba(220,38,38,0.28)">${icon('close')}Delete</button>`;
+        $('#edit-active-cat').onclick=()=>operation('/menu/categories/{ident}','put',catObj,()=>menuPage(),'Edit category');
+        $('#delete-active-cat').onclick=()=>confirmDeleteCategory(catObj,()=>menuPage());
+      }else{
+        actionsEl.innerHTML='';
+      }
+    }
+  };
+
   $('#search').oninput=e=>{state.query=e.target.value;renderMenu()};
   $('#sort-select').onchange=e=>{state.sort=e.target.value;renderMenu()};
   $('#cycle-sort-btn').onclick=()=>{
@@ -539,10 +561,10 @@ async function menuPage(){
   $$('[data-category]').forEach(b=>b.onclick=()=>{
     state.category=b.dataset.category;
     $$('[data-category]').forEach(x=>x.classList.toggle('active',x===b));
-    const catObj = state.cache.categories.find(c=>String(c.id)===state.category);
-    $('#active-category-heading').textContent = state.category==='all'?'Category':state.category==='combos'?'House Combos':state.category==='favorites'?'Favourite Dishes':catObj?.name||'Category';
+    syncCategoryHeader();
     renderMenu();
   });
+  syncCategoryHeader();
   if(isManager){
     $('[data-action=preview-pos]').onclick=()=>navigate('pos');
     $('[data-action=add-item]').onclick=()=>itemForm();
@@ -1145,12 +1167,39 @@ async function recordDetail(r,path,title,canEdit,refresh){
   if(path==='/expenses'){add('Record payment',path+'/{ident}/payments');if(manager&&!r.reversed)add('Reverse expense',path+'/{ident}/reverse');}
   if(path==='/inventory/adjustments'&&manager&&r.status==='pending')add('Approve adjustment',path+'/{ident}/approve');
   if(path==='/shifts'&&!r.closed){add('Cash movement',path+'/{ident}/movements');add('Close shift',path+'/{ident}/close');}
-  modal(title,`<div class="detail-grid">${Object.entries(r).filter(([k,v])=>typeof v!=='object'&&!['password','content'].includes(k)).map(([k,v])=>`<div><small>${esc(label(k))}</small><p>${esc(format(k,v))}</p></div>`).join('')}</div>${r.lines?table(r.lines,Object.keys(r.lines[0]||{}).filter(k=>!['returned_cost','returned_total'].includes(k)).slice(0,8)):''}<div class="detail-actions">${actions.map((a,i)=>`<button class="button ${i?'secondary':''}" data-record-action="${i}">${esc(a.text)}</button>`).join('')}${['/inventory/invoices','/expenses'].includes(path)?'<button class="button secondary" id="attachments">Receipts & attachments</button>':''}</div>`);
+  modal(title,`<div class="detail-grid">${Object.entries(r).filter(([k,v])=>typeof v!=='object'&&!['password','content'].includes(k)).map(([k,v])=>`<div><small>${esc(label(k))}</small><p>${esc(format(k,v))}</p></div>`).join('')}</div>${r.lines?table(r.lines,Object.keys(r.lines[0]||{}).filter(k=>!['returned_cost','returned_total'].includes(k)).slice(0,8)):''}<div class="detail-actions">${actions.map((a,i)=>`<button class="button ${i?'secondary':''}" data-record-action="${i}">${esc(a.text)}</button>`).join('')}${path==='/menu/categories'&&manager?'<button class="button secondary" id="delete-category-btn" style="color:var(--danger);border-color:rgba(220,38,38,0.28)">Delete category</button>':''}${['/inventory/invoices','/expenses'].includes(path)?'<button class="button secondary" id="attachments">Receipts & attachments</button>':''}</div>`);
   $$('[data-record-action]').forEach(b=>b.onclick=()=>{
     const a=actions[+b.dataset.recordAction];
     operation(a.p,a.method,{...a.initial,id:r.id},refresh,a.text);
   });
+  if($('#delete-category-btn'))$('#delete-category-btn').onclick=()=>confirmDeleteCategory(r,refresh);
   if($('#attachments'))$('#attachments').onclick=()=>attachments(path==='/expenses'?'expense':'purchase_invoice',r.id);
+}
+
+function confirmDeleteCategory(cat, onDone){
+  const itemCount = (state.cache.items||[]).filter(i=>i.category_id===cat.id).length;
+  modal('Delete category',`
+    <div class="notice warn" style="margin-bottom:16px">
+      <span style="font-size:18px;flex-shrink:0">⚠️</span>
+      <span><strong>Warning:</strong> Deleting the category <strong>${esc(cat.name)}</strong> will permanently delete <strong>all menu items</strong> inside this category${itemCount?` (${itemCount} item${itemCount===1?'':'s'})`:''}. This action cannot be undone.</span>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink-soft);margin:0 0 8px;">Are you sure you want to delete <strong>${esc(cat.name)}</strong> and all of its menu items?</p>
+    <div id="cat-del-error"></div>
+    <div class="modal-footer">
+      <button type="button" class="button secondary" id="cat-del-cancel">Cancel</button>
+      <button type="button" class="button" id="cat-del-confirm" style="background:var(--danger);color:#ffffff;box-shadow:none;">${icon('close')}Delete category &amp; items</button>
+    </div>
+  `);
+  $('#cat-del-cancel').onclick=()=>$('#modal').close();
+  $('#cat-del-confirm').onclick=async e=>{
+    await busy(e.currentTarget,async()=>{
+      const res=await api(`/menu/categories/${cat.id}`,{method:'DELETE'});
+      $('#modal').close();
+      if(String(state.category)===String(cat.id)) state.category='all';
+      toast(`Category deleted (${res.deleted_items||0} item${res.deleted_items===1?'':'s'} removed)`);
+      await onDone();
+    }).catch(err=>{$('#cat-del-error').innerHTML=errorBox(err)});
+  };
 }
 
 async function attachments(entity,id){

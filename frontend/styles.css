@@ -1,29 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
-  --ink: #e9e9ed;
-  --ink-soft: #cfd3e5;
-  --muted: #9197af;
-  --paper: #161826;
-  --surface: #232532;
-  --stage: #1b1d2c;
-  --sheet: #1f2230;
-  --line: #2d3142;
-  --gold: #5b97e0;
-  --gold-hover: #5084c4;
-  --gold-soft: rgba(91, 151, 224, 0.16);
-  --gold-deep: #7cb3f6;
-  --green: #161826;
-  --emerald: #34d399;
-  --emerald-soft: rgba(52, 211, 153, 0.16);
-  --danger: #f87171;
-  --danger-soft: rgba(248, 113, 113, 0.16);
+  /* 60% Dominant: Clean White & Crisp Off-White */
+  --paper: #f5f7fb;
+  --surface: #ffffff;
+  --stage: #eef2f7;
+  --sheet: #f8fafc;
+  --line: #e2e8f0;
   --white: #ffffff;
-  --soft: #1a1c2a;
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 10px 24px rgba(91, 151, 224, 0.30);
+  --soft: #f1f5f9;
+
+  /* 30% Secondary: Deep Dark Blue (Primary Buttons, Active States, Depth) */
+  --ink: #0f172a;
+  --ink-soft: #334155;
+  --muted: #64748b;
+  --gold: #162d59;
+  --gold-hover: #0f2042;
+  --gold-soft: rgba(22, 45, 89, 0.08);
+  --gold-deep: #162d59;
+  --green: #162d59;
+
+  /* 10% Accent: Crisp Sky Teal (#0ea5e9 / #0284c7) + Semantic */
+  --accent: #0ea5e9;
+  --accent-deep: #0284c7;
+  --accent-soft: rgba(14, 165, 233, 0.12);
+  --emerald: #059669;
+  --emerald-soft: rgba(5, 150, 105, 0.10);
+  --danger: #dc2626;
+  --danger-soft: rgba(220, 38, 38, 0.10);
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.07);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --shadow-gold: 0 8px 20px rgba(22, 45, 89, 0.24);
   --radius-xl: 28px;
   --radius-lg: 22px;
   --radius-md: 16px;
@@ -32,7 +41,7 @@
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -43,10 +52,10 @@ body {
   margin: 0;
   background-color: var(--paper);
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(91, 151, 224, 0.08) 0, rgba(91, 151, 224, 0.08) 4px, transparent 5px),
-    radial-gradient(circle at 86% 12%, rgba(91, 151, 224, 0.07) 0, rgba(91, 151, 224, 0.07) 5px, transparent 6px),
-    radial-gradient(circle at 92% 76%, rgba(91, 151, 224, 0.06) 0, rgba(91, 151, 224, 0.06) 4px, transparent 5px),
-    radial-gradient(circle at 8% 82%, rgba(91, 151, 224, 0.06) 0, rgba(91, 151, 224, 0.06) 6px, transparent 7px);
+    radial-gradient(circle at 12% 18%, rgba(14, 165, 233, 0.07) 0, rgba(14, 165, 233, 0.07) 4px, transparent 5px),
+    radial-gradient(circle at 86% 12%, rgba(22, 45, 89, 0.05) 0, rgba(22, 45, 89, 0.05) 5px, transparent 6px),
+    radial-gradient(circle at 92% 76%, rgba(14, 165, 233, 0.06) 0, rgba(14, 165, 233, 0.06) 4px, transparent 5px),
+    radial-gradient(circle at 8% 82%, rgba(22, 45, 89, 0.05) 0, rgba(22, 45, 89, 0.05) 6px, transparent 7px);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -165,13 +174,13 @@ small {
 .brand-mark {
   width: 42px;
   height: 42px;
-  background: rgba(91, 151, 224, 0.12);
-  border: 1px solid rgba(91, 151, 224, 0.28);
+  background: var(--gold);
+  border: 1px solid rgba(22, 45, 89, 0.18);
   border-radius: 12px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(91, 151, 224, 0.20);
+  box-shadow: 0 4px 12px rgba(22, 45, 89, 0.18);
   flex-shrink: 0;
 }
 
@@ -183,7 +192,7 @@ small {
 }
 
 .brand-accent {
-  color: var(--gold);
+  color: var(--accent-deep);
 }
 
 .brand small {
@@ -260,8 +269,8 @@ small {
 }
 
 .avatar {
-  background: var(--ink);
-  color: var(--gold);
+  background: var(--gold);
+  color: #ffffff;
   width: 38px;
   height: 38px;
   border-radius: 12px;
@@ -285,7 +294,7 @@ small {
   align-items: center;
   justify-content: space-between;
   padding: 0 44px;
-  background: rgba(22, 24, 38, 0.92);
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
@@ -316,33 +325,33 @@ small {
 }
 
 .top-actions .date {
-  color: #cfd3e5;
-  font-weight: 500;
+  color: var(--ink-soft);
+  font-weight: 600;
 }
 
 .top-contact {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #cfd3e5;
+  color: var(--gold);
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
   padding: 6px 13px;
   border-radius: 999px;
-  background: rgba(91, 151, 224, 0.12);
-  border: 1px solid rgba(91, 151, 224, 0.28);
+  background: var(--gold-soft);
+  border: 1px solid rgba(22, 45, 89, 0.16);
   transition: all 0.2s ease;
 }
 
 .top-contact:hover {
   color: #ffffff;
-  background: rgba(91, 151, 224, 0.25);
-  border-color: #5b97e0;
+  background: var(--gold);
+  border-color: var(--gold);
 }
 
 .top-contact .icon {
-  stroke: #5b97e0;
+  stroke: var(--accent-deep);
   width: 14px;
   height: 14px;
 }
@@ -352,35 +361,35 @@ small {
 }
 
 .top-actions .button.ghost {
-  color: #cfd3e5;
+  color: var(--ink-soft);
 }
 
 .top-actions .button.ghost:hover {
-  color: #ffffff;
-  background: rgba(91, 151, 224, 0.16);
+  color: var(--gold);
+  background: var(--gold-soft);
 }
 
 .top-avatar {
   width: 38px;
   height: 38px;
   border-radius: 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  color: var(--gold);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  color: #ffffff;
   display: grid;
   place-items: center;
   font-weight: 800;
   font-size: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 12px rgba(22, 45, 89, 0.18);
 }
 
 .live {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(52, 211, 153, 0.12);
-  color: #34d399;
-  border: 1px solid rgba(52, 211, 153, 0.28);
+  background: var(--emerald-soft);
+  color: var(--emerald);
+  border: 1px solid rgba(5, 150, 105, 0.22);
   padding: 6px 13px;
   border-radius: 999px;
   font-weight: 600;
@@ -392,8 +401,8 @@ small {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+  background: var(--emerald);
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.45);
 }
 
 .content {
@@ -503,8 +512,8 @@ small {
 
 /* Dashboard Hero & Stats */
 .hero {
-  background: linear-gradient(135deg, #152445 0%, #1c2235 100%);
-  border: 1px solid rgba(91, 151, 224, 0.22);
+  background: linear-gradient(135deg, #162d59 0%, #0f2042 100%);
+  border: 1px solid rgba(22, 45, 89, 0.20);
   border-radius: var(--radius-xl);
   padding: 32px 38px;
   color: #fff;
@@ -515,7 +524,7 @@ small {
   overflow: hidden;
   margin-bottom: 26px;
   min-height: 160px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 14px 32px rgba(22, 45, 89, 0.20);
 }
 
 .hero:after {
@@ -525,13 +534,13 @@ small {
   top: -80px;
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(91, 151, 224, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .hero .eyebrow {
-  color: var(--gold);
+  color: #38bdf8;
 }
 
 .hero h2 {
@@ -542,14 +551,19 @@ small {
 }
 
 .hero p {
-  color: #b8c0ce;
+  color: #cbd5e1;
   font-size: 13px;
 }
 
 .hero .button {
-  background: var(--gold);
+  background: var(--accent);
   color: #ffffff;
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
   z-index: 1;
+}
+
+.hero .button:hover:not(:disabled) {
+  background: var(--accent-deep);
 }
 
 .stats {
@@ -569,8 +583,9 @@ small {
 }
 
 .stat:hover {
-  border-color: rgba(91, 151, 224, 0.35);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-color: rgba(14, 165, 233, 0.45);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
 }
 
 .stat-title {
@@ -662,7 +677,7 @@ small {
 }
 
 .bar-group:hover .bar {
-  background: #f9d978;
+  background: var(--accent);
 }
 
 .bar-group:last-child .bar {
@@ -850,8 +865,8 @@ tr:last-child td {
 
 .search input:focus {
   background: var(--surface);
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(246, 199, 68, 0.18);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.16);
   outline: none;
 }
 
@@ -860,7 +875,7 @@ tr:last-child td {
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #8b95a5;
+  color: #64748b;
   pointer-events: none;
 }
 
@@ -869,7 +884,7 @@ tr:last-child td {
   height: 48px;
   border-radius: 15px;
   background: var(--gold);
-  color: var(--ink);
+  color: #ffffff;
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -898,8 +913,8 @@ input:focus,
 select:focus,
 textarea:focus {
   background: var(--surface);
-  border-color: var(--gold);
-  outline: 3px solid rgba(246, 199, 68, 0.2);
+  border-color: var(--accent);
+  outline: 3px solid rgba(14, 165, 233, 0.18);
 }
 
 textarea {
@@ -976,9 +991,9 @@ input[type=checkbox] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--gold-soft);
-  border: 1px solid #f5d87e;
-  color: var(--ink);
+  background: var(--accent-soft);
+  border: 1px solid rgba(14, 165, 233, 0.30);
+  color: var(--gold);
   padding: 7px 14px;
   border-radius: 999px;
   font-size: 12px;
@@ -988,6 +1003,7 @@ input[type=checkbox] {
 
 .promo-pill strong {
   background: var(--gold);
+  color: #ffffff;
   padding: 2px 8px;
   border-radius: 99px;
   font-size: 11px;
@@ -1113,22 +1129,22 @@ input[type=checkbox] {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(35, 37, 50, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
   backdrop-filter: blur(6px);
-  color: var(--ink);
+  color: var(--gold);
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: 11.5px;
   padding: 5px 10px;
   border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 .food-accent-bar {
   width: 24px;
   height: 3.5px;
-  background: var(--gold);
+  background: var(--accent);
   border-radius: 999px;
   margin: 14px auto 9px;
 }
@@ -1183,7 +1199,7 @@ input[type=checkbox] {
   font-weight: 800;
   display: grid;
   place-items: center;
-  box-shadow: 0 6px 14px rgba(91, 151, 224, 0.35);
+  box-shadow: 0 6px 14px rgba(22, 45, 89, 0.24);
 }
 
 .add-button:hover {
@@ -1344,8 +1360,8 @@ input[type=checkbox] {
 
 .quantity button.qty-plus {
   background: var(--gold);
-  color: var(--ink);
-  box-shadow: 0 4px 10px rgba(246, 199, 68, 0.35);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(22, 45, 89, 0.24);
 }
 
 .quantity span {
@@ -1624,9 +1640,9 @@ input[type=checkbox] {
   font-size: 13px;
   font-weight: 500;
   line-height: 1.6;
-  background: rgba(91, 151, 224, 0.10);
-  border: 1px solid rgba(91, 151, 224, 0.24);
-  color: #d6e2f7;
+  background: var(--accent-soft);
+  border: 1px solid rgba(14, 165, 233, 0.26);
+  color: #0c4a6e;
   padding: 15px 20px;
   border-radius: 14px;
   margin-bottom: 26px;
@@ -1636,9 +1652,9 @@ input[type=checkbox] {
 }
 
 .notice.warn {
-  background: rgba(245, 158, 11, 0.10);
-  border-color: rgba(245, 158, 11, 0.28);
-  color: #fde68a;
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
 }
 
 .loading {
@@ -1785,7 +1801,7 @@ dialog::backdrop {
 }
 
 .login-art {
-  background: linear-gradient(145deg, #161826 0%, #142c5c 100%);
+  background: linear-gradient(145deg, #0f2042 0%, #162d59 100%);
   padding: 52px 60px;
   color: white;
   display: flex;
@@ -1802,7 +1818,7 @@ dialog::backdrop {
   position: absolute;
   right: -180px;
   top: 140px;
-  background: radial-gradient(circle, rgba(91, 151, 224, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.28) 0%, transparent 70%);
   border-radius: 50%;
 }
 
@@ -1810,8 +1826,12 @@ dialog::backdrop {
   color: #ffffff;
 }
 
+.login-art .brand-accent {
+  color: #38bdf8;
+}
+
 .login-art .brand small {
-  color: #9ba5b7;
+  color: #94a3b8;
 }
 
 .login-copy {
@@ -1831,7 +1851,7 @@ dialog::backdrop {
 
 .login-copy em {
   font-style: normal;
-  color: var(--gold);
+  color: #38bdf8;
 }
 
 .login-copy p {
@@ -1872,7 +1892,7 @@ dialog::backdrop {
 }
 
 .login-mini-price {
-  background: var(--gold);
+  background: var(--accent);
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;

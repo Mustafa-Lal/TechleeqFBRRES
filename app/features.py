@@ -227,7 +227,7 @@ def tax_config(body: TaxConfig, user=Depends(manager)):
                 res = write(c, "tax_rule", rule_data, user, ident=ident)
                 for extra in active_rules[1:]:
                     c.execute(
-                        "DELETE FROM documents WHERE kind='tax_rule' AND id=?",
+                        "DELETE FROM records WHERE kind='tax_rule' AND id=?",
                         (extra["id"],),
                     )
                 return res
@@ -281,7 +281,7 @@ def tax_rule_update(ident: int, body: TaxConfig, user=Depends(manager)):
 @app.delete("/settings/tax/{ident}")
 def tax_rule_delete(ident: int, user=Depends(manager)):
     with db() as c:
-        c.execute("DELETE FROM documents WHERE kind='tax_rule' AND id=?", (ident,))
+        c.execute("DELETE FROM records WHERE kind='tax_rule' AND id=?", (ident,))
         audit(c, user, "tax_rule_deleted", ident)
         return {"deleted": True}
 
@@ -301,6 +301,23 @@ def categories(user=Depends(staff)):
 def edit_category(ident: int, body: CategoryEdit, user=Depends(manager)):
     with db() as c:
         return write(c, "category", body.model_dump(), user, ident)
+
+
+@app.delete("/menu/categories/{ident}")
+def delete_category(ident: int, user=Depends(manager)):
+    with db() as c:
+        get(c, "category", ident)
+        items_in_cat = [
+            i for i in listing(c, "item") if i.get("category_id") == ident
+        ]
+        for item in items_in_cat:
+            c.execute(
+                "DELETE FROM records WHERE kind='item' AND id=?", (item["id"],)
+            )
+            audit(c, user, "item_deleted", item["id"])
+        c.execute("DELETE FROM records WHERE kind='category' AND id=?", (ident,))
+        audit(c, user, "category_deleted", ident)
+        return {"deleted": True, "id": ident, "deleted_items": len(items_in_cat)}
 
 
 class ItemEdit(Item):
